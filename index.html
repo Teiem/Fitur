@@ -1617,7 +1617,7 @@
         }
 
         if (/(( ?[0-9]+ ?)[\*\-\/\+\=\%\^])+( ?[0-9]+ ?)>[1-3]/g.test(UserInputA)) {
-          NoteNr = UserInputA.match(/(?<=>)[1-3]/)
+          NoteNr = UserInputA.match(/ ?[0-9]+ ?[\*\-\/\+\=\%\^]+ ?[0-9]+ ?>([1-3])/)[1];
           var CurrentStorage = localStorage.getItem("Note" + NoteNr)
           localStorage.setItem("Note" + NoteNr, CurrentStorage + "\n" + CalculatedNumber);
           document.getElementById("wrapperWrapper").classList.remove("MenuMoveIn");
